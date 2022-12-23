@@ -121,7 +121,7 @@ protected:
 	afx_msg void OnKillfocusEditColorG();
 	afx_msg void OnKillfocusEditColorR();
 	afx_msg void OnPaint();
-	afx_msg void OnChangeColor (UINT nType, UINT nFlags);
+	afx_msg LRESULT OnChangeColor (WPARAM nType, LPARAM nFlags);
 	afx_msg void OnButtonAuto();
 	afx_msg void OnKillfocusComboValue();
 	afx_msg BOOL OnToolTipNotify ( UINT id, NMHDR * pTTTStruct, LRESULT * pResult );	

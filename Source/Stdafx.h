@@ -14,6 +14,8 @@
 
 #define VC_EXTRALEAN		// Exclude rarely-used stuff from Windows headers
 
+#include <sdkddkver.h>
+
 #include <afxwin.h>         // MFC core and standard components
 #include <afxext.h>         // MFC extensions
 #include <afxdisp.h>        // MFC OLE automation classes
@@ -25,7 +27,7 @@
 #include <afxpriv.h>
 #include <io.h>
 #include <shlobj.h>
-#include <iostream.h>
+#include <iostream>
 #include <afxcoll.h>
 #include <afx.h>
 #include <direct.h>
@@ -45,9 +47,9 @@ using namespace std;
 #include "ProgressBar.h"
 #include "MemBuffer.h"
 
-#define bool  BOOL
-#define true  TRUE
-#define false FALSE
+//#define bool  BOOL
+//#define true  TRUE
+//#define false FALSE
 
 #pragma comment( lib, "winmm.lib" )
 

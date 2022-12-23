@@ -119,7 +119,7 @@ void CPaletteEditorDlg::OnPaint()
 	}
 }
 
-void CPaletteEditorDlg::OnPaletteWndCustomMessage(UINT nType, UINT nFlags)
+LRESULT CPaletteEditorDlg::OnPaletteWndCustomMessage(WPARAM nType, LPARAM nFlags)
 {
 	switch (nType)
 	{
@@ -137,7 +137,9 @@ void CPaletteEditorDlg::OnPaletteWndCustomMessage(UINT nType, UINT nFlags)
 	default:
 		ASSERT (false);		// Unhandled type?
 		break;
-	}	
+	}
+
+	return 0;
 }
 
 void CPaletteEditorDlg::OnButtonBlend() 

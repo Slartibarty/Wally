@@ -588,7 +588,7 @@ void CColorDecalDlg::OnPaint()
 	EnableDisableResizeOptions();
 }
 
-void CColorDecalDlg::OnChangeColor (UINT nType, UINT nFlags)
+LRESULT CColorDecalDlg::OnChangeColor (WPARAM nType, LPARAM nFlags)
 {
 	switch( nType )
 	{
@@ -620,6 +620,8 @@ void CColorDecalDlg::OnChangeColor (UINT nType, UINT nFlags)
 	default:
 		ASSERT (FALSE);
 	}
+
+	return 0;
 }
 
 void CColorDecalDlg::OnRadioBlendOverallColor() 

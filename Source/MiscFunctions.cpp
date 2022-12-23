@@ -384,6 +384,7 @@ CString GetParentDirectory (CString PathName)
 	int length = PathName.GetLength();
 	int MarkerRight = 0;
 	int MarkerLeft = 0;
+	int j = 0;
 
 	// There is no directory path, get out
 	if (PathName.Find('\\') == -1)
@@ -392,7 +393,7 @@ CString GetParentDirectory (CString PathName)
 	}
 
 	// Start at the end of the string, working backwards until the first \ is found
-	for (int j = length - 1; (j >= 0) && (PathName.GetAt(j) != '\\'); j--);	
+	for (j = length - 1; (j >= 0) && (PathName.GetAt(j) != '\\'); j--);	
 	MarkerRight = j;
 
 	if (MarkerRight == 0)
@@ -693,8 +694,8 @@ void GetAllWildCards( LPSTR szWildCard, CStringArray *psaWildCards )
 
 BOOL MatchesWildCard (char *szSource, CStringArray *psaWildCards)
 {
-	register char *n;
-	register char *szUpperSource;
+	char *n;
+	char *szUpperSource;
 
 	CString strWildCard("");
 	CString strSource("");
@@ -748,8 +749,8 @@ int fnmatch (char *pattern, char *string, int flags)
 	
 */
 
-	register char *p = pattern, *n = string;
-	register char c;
+	char *p = pattern, *n = string;
+	char c;
 
 	if ((flags & ~__FNM_FLAGS) != 0)
 	{		
@@ -829,7 +830,7 @@ int fnmatch (char *pattern, char *string, int flags)
         case '[':
           {
             /* Nonzero if the sense of the character class is inverted.  */
-            register int not;
+            int isnot;
 
             if (*n == '\0')
               return (FNM_NOMATCH);
@@ -848,7 +849,7 @@ int fnmatch (char *pattern, char *string, int flags)
                not a closing `]'.  This code will have to be changed when
                POSIX.2 character classes are implemented. */
             {
-              register char *np;
+              char *np;
 
               for (np = p; np && *np && *np != ']'; np++)
                 ;
@@ -861,14 +862,14 @@ int fnmatch (char *pattern, char *string, int flags)
                 }
             }
               
-            not = (*p == '!' || *p == '^');
-            if (not)
+			isnot = (*p == '!' || *p == '^');
+            if (isnot)
               ++p;
 
             c = *p++;
             for (;;)
               {
-                register char cstart, cend;
+                char cstart, cend;
 
                 /* Initialize cstart and cend in case `-' is the last
                    character of the pattern. */
@@ -911,7 +912,7 @@ int fnmatch (char *pattern, char *string, int flags)
                 if (c == ']')
                   break;
               }
-            if (!not)
+            if (!isnot)
               return (FNM_NOMATCH);
             break;
 
@@ -932,7 +933,7 @@ int fnmatch (char *pattern, char *string, int flags)
                     ++p;
                   }
               }
-            if (not)
+            if (isnot)
               return (FNM_NOMATCH);
           }
           break;

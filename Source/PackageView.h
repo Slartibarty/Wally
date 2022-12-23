@@ -214,8 +214,8 @@ protected:
 
 	// Generated message map functions
 	//{{AFX_MSG(CPackageView)
-	afx_msg void OnPackageListBoxCustomMessage(UINT nType, UINT nFlags);
-	afx_msg void OnPackageTreeControlCustomMessage( UINT nType, UINT nFlags );
+	afx_msg LRESULT OnPackageListBoxCustomMessage(WPARAM nType, LPARAM nFlags);
+	afx_msg LRESULT OnPackageTreeControlCustomMessage( WPARAM nType, LPARAM nFlags );
 	afx_msg void OnSelchangeListImages();
 	afx_msg void OnPaint();
 	afx_msg BOOL OnToolTipNotify ( UINT id, NMHDR * pTTTStruct, LRESULT * pResult );

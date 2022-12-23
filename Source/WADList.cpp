@@ -426,7 +426,7 @@ void CWADItem::UpdateData (unsigned char *pbyBits[], CWallyPalette *pPalette, in
 			
 			if (pPalette)
 			{
-				for (j = 0; j < 256; j++)
+				for (int j = 0; j < 256; j++)
 				{
 					m_pbyPalette[j * 3 + 0] = pPalette->GetR(j);
 					m_pbyPalette[j * 3 + 1] = pPalette->GetG(j);

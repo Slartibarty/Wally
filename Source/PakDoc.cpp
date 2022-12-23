@@ -24,6 +24,8 @@ static char THIS_FILE[] = __FILE__;
 
 int WM_PAKDOC_CUSTOM	= RegisterWindowMessage ("WM_PAKDOC_CUSTOM");
 
+CPakDoc *CPakDocWnd::g_pDoc;
+
 /////////////////////////////////////////////////////////////////////////////
 // CPakDoc
 
@@ -570,15 +572,15 @@ void CPakDoc::DeleteEntry (CPakDirectory *pDirectory)
 	}
 }
 
-void CPakDocWnd::OnPakDocCustomMessage(UINT nType, UINT nFlags)
+LRESULT CPakDocWnd::OnPakDocCustomMessage(WPARAM nType, LPARAM nFlags)
 {
 	switch (nType)
 	{
 	case PAK_DOC_MESSAGE_PASTE:
 		{
-			if (m_pDoc)
+			if (g_pDoc)
 			{
-				m_pDoc->PasteFiles();
+				g_pDoc->PasteFiles();
 			}
 		}
 		break;
@@ -587,6 +589,8 @@ void CPakDocWnd::OnPakDocCustomMessage(UINT nType, UINT nFlags)
 		ASSERT (FALSE);
 		break;
 	}
+
+	return 0;
 }
 
 void CPakDoc::ImportFiles()
@@ -667,8 +671,8 @@ void CPakDoc::ImportFiles()
 				strFilePath = GetPathToFile (strFileName);
 				strOffsetDirectory = bAddNewDirectories ? strPakDirectory : "" + TrimFromLeft (strFilePath, strBaseOffsetDirectory);
 				
-				if (!pPakDirectory->AddFile ( strFileName, 
-						(g_bPakImportRetainStructure ? strOffsetDirectory : ""),
+				if (!pPakDirectory->AddFile ( strFileName,
+						(g_bPakImportRetainStructure ? strOffsetDirectory.GetString() : "" ),
 						(g_bPakImportReplaceExistingItems ? PAK_ADD_FLAG_REPLACE : 0)							
 					))
 				{						

@@ -327,7 +327,6 @@ public:
 	afx_msg void OnTpDecal();
 	afx_msg void OnUpdateTpDecal(CCmdUI* pCmdUI);
 	afx_msg BOOL OnMouseWheel(UINT nFlags, short zDelta, CPoint pt);
-	afx_msg LRESULT OnRegisteredMouseWheel(WPARAM wParam, LPARAM lParam);
 	afx_msg void OnTpBlend();
 	afx_msg void OnUpdateTpBlend(CCmdUI* pCmdUI);
 	afx_msg void OnImageEnlarge();

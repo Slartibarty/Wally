@@ -20,6 +20,8 @@
 #include "WADList.h"
 #include "RegistryHelper.h"
 
+#include "Thirdparty/lpng1639/pngpriv.h"
+
 #ifdef _DEBUG
 #define new DEBUG_NEW
 #undef THIS_FILE
@@ -200,7 +202,7 @@ BOOL CImageHelper::DecodePNG( int iFlags /* = 0 */ )
 		return FALSE;
 	}
 
-	if (setjmp(pRead->jmpbuf))
+	if (setjmp(pRead->jmp_buf_local))
 	{
 		SetErrorCode (IH_PNG_READ_ERROR);
 		png_destroy_read_struct(&pRead, &pReadInfo, &pEndInfo);
@@ -617,7 +619,7 @@ BOOL CImageHelper::EncodePNG ()
 		return FALSE;
 	}
 
-	if (setjmp(pWrite->jmpbuf))
+	if (setjmp(pWrite->jmp_buf_local))
 	{
 		SetErrorCode (IH_PNG_WRITE_ERROR);
 		png_destroy_write_struct(&pWrite, &pWriteInfo);

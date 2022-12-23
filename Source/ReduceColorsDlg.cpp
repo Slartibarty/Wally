@@ -244,7 +244,7 @@ void CReduceColorsDlg::OnOK()
 
 		// neal - i love completely absurd code, don't you?  ;-)
 
-		char* szNumName[4] = { "a", "a couple of", "three", "four" };
+		const char* szNumName[4] = { "a", "a couple of", "three", "four" };
 
 		CString strPleural;
 		if (iNumReserved > 1)

@@ -85,7 +85,7 @@ void CDecalToolbar::FirstTimeInit()
 		{
 			m_bFirstTimeTab = FALSE;
 			
-			PSTR pszTabItems[] =
+			LPCSTR pszTabItems[] =
 			{
 				"Images",
 				"Settings",
@@ -97,7 +97,7 @@ void CDecalToolbar::FirstTimeInit()
 			for(int i = 0; pszTabItems[i] != NULL; i++)
 			{
 				tcItem.mask = TCIF_TEXT;
-				tcItem.pszText = pszTabItems[i];
+				tcItem.pszText = (LPSTR)pszTabItems[i];
 				tcItem.cchTextMax = strlen(pszTabItems[i]);
 				m_TabCtrl.InsertItem(i,&tcItem);
 			}
@@ -426,7 +426,7 @@ void CDecalToolbar::OnSelchangeDt1ListImages()
 }
 
 
-void CDecalToolbar::OnDecalListBoxCustomMessage(UINT nType, UINT nFlags)
+LRESULT CDecalToolbar::OnDecalListBoxCustomMessage(WPARAM nType, LPARAM nFlags)
 {
 	switch (nType)
 	{
@@ -441,10 +441,12 @@ void CDecalToolbar::OnDecalListBoxCustomMessage(UINT nType, UINT nFlags)
 	default:
 		ASSERT (false);		// Unhandled type?
 		break;
-	}	
+	}
+
+	return 0;
 }
 
-void CDecalToolbar::OnMouseWndCustomMessage (UINT nType, UINT nFlags)
+LRESULT CDecalToolbar::OnMouseWndCustomMessage (WPARAM nType, LPARAM nFlags)
 {
 	switch (nType)
 	{
@@ -460,6 +462,8 @@ void CDecalToolbar::OnMouseWndCustomMessage (UINT nType, UINT nFlags)
 		ASSERT (false);
 		break;
 	}
+
+	return 0;
 }
 
 bool CDecalToolbar::GetCurrentSelection()

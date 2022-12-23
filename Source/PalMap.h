@@ -55,7 +55,7 @@ public:
 		}
 	}
 
-	int CPalMap::GetRefCount( COLORREF rgbIndex)
+	int GetRefCount( COLORREF rgbIndex)
 	{
 		DWORD dwRefCountAndPalIndex;
 

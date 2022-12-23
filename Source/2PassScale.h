@@ -98,7 +98,7 @@ template <class FilterClass, class DataClass = CDataCOLORREF>
 class C2PassScale 
 {
 public:
-    typedef DataClass::_DataType _DataType;
+    typedef typename DataClass::_DataType _DataType;
 
     C2PassScale (ProgressAnbAbortCallBack callback = NULL) : 
         m_Callback (callback) {}
@@ -256,7 +256,7 @@ CalcContributions (UINT uLineSize, UINT uSrcSize, double dScale)
         ASSERT (dTotalWeight >= 0.0);   // An error in the filter function can cause this 
         if (dTotalWeight > 0.0)
         {   // Normalize weight of neighbouring points
-            for (iSrc = iLeft; iSrc <= iRight; iSrc++)
+            for (int iSrc = iLeft; iSrc <= iRight; iSrc++)
             {   // Normalize point
                 res->ContribRow[u].Weights[iSrc-iLeft] /= dTotalWeight; 
             }
@@ -280,7 +280,7 @@ ScaleRow (  _DataType           *pSrc,
     _DataType *pDstRow = &(pRes[uRow * uResWidth]);
     for (UINT x = 0; x < uResWidth; x++) 
     {   // Loop through row
-	DataClass::_Accumulator a;
+	typename DataClass::_Accumulator a;
         int iLeft = Contrib->ContribRow[x].Left;    // Retrieve left boundries
         int iRight = Contrib->ContribRow[x].Right;  // Retrieve right boundries
         for (int i = iLeft; i <= iRight; i++)
@@ -350,7 +350,7 @@ ScaleCol (  _DataType           *pSrc,
 { 
     for (UINT y = 0; y < uResHeight; y++) 
     {    // Loop through column
-	DataClass::_Accumulator a;
+	typename DataClass::_Accumulator a;
         int iLeft = Contrib->ContribRow[y].Left;    // Retrieve left boundries
         int iRight = Contrib->ContribRow[y].Right;  // Retrieve right boundries
         for (int i = iLeft; i <= iRight; i++)
@@ -410,7 +410,7 @@ VertScale ( _DataType           *pSrc,
 } 
 
 template <class FilterClass, class DataClass>
-C2PassScale<FilterClass, DataClass>::_DataType *
+typename C2PassScale<FilterClass, DataClass>::_DataType *
 C2PassScale<FilterClass, DataClass>::
 AllocAndScale ( 
     _DataType   *pOrigImage, 
@@ -452,7 +452,7 @@ AllocAndScale (
 } 
 
 template <class FilterClass, class DataClass>
-C2PassScale<FilterClass, DataClass>::_DataType *
+typename C2PassScale<FilterClass, DataClass>::_DataType *
 C2PassScale<FilterClass, DataClass>::
 Scale ( 
     _DataType   *pOrigImage, 

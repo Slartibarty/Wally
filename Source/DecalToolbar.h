@@ -85,8 +85,8 @@ protected:
 
 	// Generated message map functions
 	//{{AFX_MSG(CDecalToolbar)
-	afx_msg void OnDecalListBoxCustomMessage(UINT nType, UINT nFlags);
-	afx_msg void OnMouseWndCustomMessage (UINT nType, UINT nFlags);
+	afx_msg LPARAM OnDecalListBoxCustomMessage(WPARAM nType, LPARAM nFlags);
+	afx_msg LPARAM OnMouseWndCustomMessage (WPARAM nType, LPARAM nFlags);
 	afx_msg void OnPaint();
 	afx_msg void OnSelchangeDtTab(NMHDR* pNMHDR, LRESULT* pResult);
 	afx_msg void OnSetfocusDt1ComboWad();

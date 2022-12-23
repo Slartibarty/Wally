@@ -3326,8 +3326,8 @@ void CTool::ShowToolInfo( CWallyView* pView, CPoint ptPos)
 	char sbText[80];
 	CString strInfo;
 
-	xDiv = div( ptTrue.x, w);
-	yDiv = div( ptTrue.y, h);
+	xDiv = div( (int)ptTrue.x, w);
+	yDiv = div( (int)ptTrue.y, h);
 	ptTrue.x = xDiv.rem;
 	ptTrue.y = yDiv.rem;
 	sprintf( sbText, "Pos:%3d,%3d", ptTrue.x, ptTrue.y);

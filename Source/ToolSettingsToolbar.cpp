@@ -171,7 +171,7 @@ void CToolSettingsToolbar::FirstTimeInit()
 		pCombo->SetItemData (iItemAdded, j);
 	}
 
-	for (j = 1; j <= MAX_ZOOM; j++)
+	for (int j = 1; j <= MAX_ZOOM; j++)
 	{
 		strZoom.Format ("%d:1", j);
 		iItemAdded = pCombo->AddString (strZoom);
@@ -598,7 +598,7 @@ void CToolSettingsToolbar::OnSelchangeTst1ListImages()
 }
 
 
-void CToolSettingsToolbar::OnDecalListBoxCustomMessage(UINT nType, UINT nFlags)
+LRESULT CToolSettingsToolbar::OnDecalListBoxCustomMessage(WPARAM nType, LPARAM nFlags)
 {
 	switch (nType)
 	{
@@ -613,10 +613,12 @@ void CToolSettingsToolbar::OnDecalListBoxCustomMessage(UINT nType, UINT nFlags)
 	default:
 		ASSERT (false);		// Unhandled type?
 		break;
-	}	
+	}
+
+	return 0;
 }
 
-void CToolSettingsToolbar::OnMouseWndCustomMessage (UINT nType, UINT nFlags)
+LRESULT CToolSettingsToolbar::OnMouseWndCustomMessage (WPARAM nType, LPARAM nFlags)
 {
 	switch (nType)
 	{
@@ -632,6 +634,8 @@ void CToolSettingsToolbar::OnMouseWndCustomMessage (UINT nType, UINT nFlags)
 		ASSERT (false);
 		break;
 	}
+
+	return 0;
 }
 
 bool CToolSettingsToolbar::GetCurrentSelection()

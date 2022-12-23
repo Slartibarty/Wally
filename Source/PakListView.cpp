@@ -1043,7 +1043,7 @@ void CPakListView::OnPakPopupNewTxtfile()
 		while (!bDone)
 		{
 			strCount.Format ("%d", iCount);
-			strShortName.Format ("New Text Document%s.txt", iCount == 0 ? "" : strCount);
+			strShortName.Format ("New Text Document%s.txt", iCount == 0 ? "" : strCount.GetString());
 
 			if (!pDirectory->FindNameInList (strShortName))
 			{			

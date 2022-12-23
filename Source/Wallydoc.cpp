@@ -77,7 +77,7 @@ CWallyDoc::CWallyDoc()
 	Q1Header.width = 0;
 	Q1Header.height = 0;
 
-	for (j = 0; j < 4; j++)
+	for (int j = 0; j < 4; j++)
 	{
 		Q2Header.offsets[j] = 0;
 		Q1Header.offsets[j] = 0;
@@ -3928,7 +3928,8 @@ void CWallyDoc::UpdateAllDIBs( BOOL bRebuildSubMips)
 
 			CSelection *pSel = GetSelection();
 			pLayer = pSel->GetLayer();
-			pView->m_DIB[0].SetBitsFromLayer( pLayer, &pSel->GetBoundsRect(), FALSE, pView->m_bTile);
+			CRect rBoundsRect = pSel->GetBoundsRect();
+			pView->m_DIB[0].SetBitsFromLayer( pLayer, &rBoundsRect, FALSE, pView->m_bTile);
 		}
 
 		if (bSizeChanged)

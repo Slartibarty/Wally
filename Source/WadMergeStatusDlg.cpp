@@ -101,13 +101,13 @@ void CWadMergeStatusDlg::OnTimer(UINT nIDEvent)
 }
 
 
-void CWadMergeStatusDlg::OnWadMergeStatusDlgCustomMessage( UINT nType, UINT nFlags )
+LRESULT CWadMergeStatusDlg::OnWadMergeStatusDlgCustomMessage( WPARAM nType, LPARAM nFlags )
 {
 	LPMERGE_STATUS lpStatus = (LPMERGE_STATUS)nFlags;
 
 	if( !lpStatus )
 	{
-		return;
+		return 0;
 	}
 	CString strText("");
 
@@ -136,4 +136,6 @@ void CWadMergeStatusDlg::OnWadMergeStatusDlgCustomMessage( UINT nType, UINT nFla
 	}
 
 	delete lpStatus;
+
+	return 0;
 }

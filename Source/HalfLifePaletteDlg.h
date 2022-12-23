@@ -68,11 +68,11 @@ protected:
 	afx_msg void OnKillfocusEditRed();
 	afx_msg void OnButtonDefault();
 	afx_msg void OnButtonLoad();
-	afx_msg bool OnButtonNew();
+	afx_msg void OnButtonNew();
 	afx_msg void OnButtonSave();
 	afx_msg void OnButtonBlend();
 	virtual void OnOK();
-	afx_msg void OnPaletteWndCustomMessage(UINT nType, UINT nFlags);
+	afx_msg LPARAM OnPaletteWndCustomMessage(WPARAM nType, LPARAM nFlags);
 	//}}AFX_MSG
 	DECLARE_MESSAGE_MAP()
 };

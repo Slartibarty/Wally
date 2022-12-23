@@ -395,7 +395,7 @@ void CSinFlagsDlg::OnSelchangeListFields()
 	}
 }
 
-void CSinFlagsDlg::OnChangeColor (UINT nType, UINT nFlags)
+LRESULT CSinFlagsDlg::OnChangeColor (WPARAM nType, LPARAM nFlags)
 {
 	switch (nType)
 	{
@@ -432,6 +432,8 @@ void CSinFlagsDlg::OnChangeColor (UINT nType, UINT nFlags)
 	default:
 		ASSERT (FALSE);
 	}
+
+	return 0;
 }
 
 void CSinFlagsDlg::UpdateColorFields()

@@ -95,7 +95,7 @@ protected:
 	afx_msg void OnSelchangeComboPackage();
 	afx_msg void OnKillfocusEditDestDir();
 	afx_msg void OnKillfocusEditSourceDir();
-	afx_msg void OnBatchDlgCustomMessage(UINT nType, UINT nFlags);
+	afx_msg LRESULT OnBatchDlgCustomMessage(WPARAM nType, LPARAM nFlags);
 	afx_msg void OnRadioNewPackage();
 	//}}AFX_MSG
 	DECLARE_MESSAGE_MAP()

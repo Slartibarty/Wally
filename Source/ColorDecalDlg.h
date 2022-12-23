@@ -107,7 +107,7 @@ protected:
 	afx_msg void OnRadioMaintainAspect();
 	afx_msg void OnRadioStretchToFit();
 	afx_msg void OnCheckPureBluePixels();
-	afx_msg void OnChangeColor (UINT nType, UINT nFlags);
+	afx_msg LRESULT OnChangeColor (WPARAM nType, LPARAM nFlags);
 	afx_msg void OnPaint();
 	afx_msg void OnRadioBlendOverallColor();
 	afx_msg void OnRadioBlendSpecificColor();

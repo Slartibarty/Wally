@@ -1667,7 +1667,7 @@ COLOR_IRGB CDibSection::GetPixelAtIndex( UINT iIndex)
 	UINT iY = 0;
 	div_t dt;
 
-	dt = div(iIndex, iWidth);
+	dt = div((int)iIndex, (int)iWidth);
 	iX = dt.rem;
 	iY = dt.quot;
 

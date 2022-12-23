@@ -647,11 +647,13 @@ void CBatchDlg::OnButtonGo()
 
 void CBatchDlg::SpoolerStopped()
 {
+#if 0
 	CBatchSummaryDlg dlgSummary;	
 
 	dlgSummary.SetTitle ("Conversion Summary");
 	dlgSummary.SetStatusText (m_strStatusText);
 	dlgSummary.DoModal();
+#endif
 	
 	m_strStatusText = "";
 	
@@ -662,7 +664,7 @@ void CBatchDlg::SpoolerStopped()
 	SetDlgItemText (IDC_TEMP_STATUS, "");
 }
 
-void CBatchDlg::OnBatchDlgCustomMessage(UINT nType, UINT nFlags)
+LRESULT CBatchDlg::OnBatchDlgCustomMessage(WPARAM nType, LPARAM nFlags)
 {
 	switch( nType )
 	{
@@ -692,6 +694,8 @@ void CBatchDlg::OnBatchDlgCustomMessage(UINT nType, UINT nFlags)
 	default:
 		break;
 	}
+
+	return 0;
 }
 
 void WINAPI CBatchDlg::ThreadMessageCallBack( CThreadMessage *lpMessage )

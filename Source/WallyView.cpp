@@ -122,17 +122,6 @@ UINT GetKeyFlags( void)
 IMPLEMENT_DYNCREATE(CWallyView, CScrollView)
 
 
-//DWORD dwWinVer = ::GetVersion();
-//static UINT uMsgMouseWheel = ::RegisterWindowMessage( MSH_MOUSEWHEEL);
-
-CString strMouseWheelMsg( MSH_MOUSEWHEEL);
-
-// register for Windows 95 or Windows NT 3.51
-static UINT uMsgMouseWheel =
-   (((::GetVersion() & 0x80000000) && LOBYTE(LOWORD(::GetVersion()) == 4)) ||
-	 (!(::GetVersion() & 0x80000000) && LOBYTE(LOWORD(::GetVersion()) == 3)))
-	 ? ::RegisterWindowMessage( MSH_MOUSEWHEEL) : 0;
-
 BEGIN_MESSAGE_MAP(CWallyView, CScrollView)
 	ON_UPDATE_COMMAND_UI(ID_EDIT_COPY, OnUpdateEditCopyCut)
 	ON_UPDATE_COMMAND_UI(ID_EDIT_CUT, OnUpdateEditCopyCut)
@@ -283,7 +272,6 @@ BEGIN_MESSAGE_MAP(CWallyView, CScrollView)
 	ON_COMMAND(ID_TP_DECAL, OnTpDecal)
 	ON_UPDATE_COMMAND_UI(ID_TP_DECAL, OnUpdateTpDecal)
 	ON_WM_MOUSEWHEEL()
-	ON_REGISTERED_MESSAGE(uMsgMouseWheel, OnRegisteredMouseWheel)
 	ON_COMMAND(ID_TP_BLEND, OnTpBlend)
 	ON_UPDATE_COMMAND_UI(ID_TP_BLEND, OnUpdateTpBlend)
 	ON_COMMAND(ID_IMAGE_ENLARGE, OnImageEnlarge)
@@ -2495,7 +2483,7 @@ void CWallyView::ShiftImage( int iDirection)
 {
 	CWallyDoc* pDoc = GetDocument();
 
-	char* szUndo = NULL;
+	const char* szUndo = NULL;
 
 	switch (iDirection)
 	{
@@ -4746,15 +4734,6 @@ BOOL CWallyView::OnMouseWheel( UINT /*uFlags*/, short zDelta, CPoint /*pt*/)
 	}
 
 	return FALSE;
-}
-
-/////////////////////////////////////////////////////////////////////////////
-// Name:	OnRegisteredMouseWheel
-// Action:	Handles a mouse wheel event (for Win95/98)
-/////////////////////////////////////////////////////////////////////////////
-LRESULT CWallyView::OnRegisteredMouseWheel( WPARAM wParam, LPARAM lParam)
-{
-	return CWnd::OnRegisteredMouseWheel( wParam, lParam);
 }
 
 void CWallyView::OnImageTiledTint() 

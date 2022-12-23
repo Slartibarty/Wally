@@ -444,17 +444,6 @@ BOOL CWallyApp::InitInstance()
 	// For browse copy/paste moves between directories:
 	g_iBrowseCopyPasteFormat = RegisterClipboardFormat ("Wally browse copy-paste format");
 	
-	// Standard initialization
-	// If you are not using these features and wish to reduce the size
-	//  of your final executable, you should remove from the following
-	//  the specific initialization routines you do not need.
-
-#ifdef _AFXDLL
-	Enable3dControls();			// Call this when using MFC in a shared DLL
-#else
-	Enable3dControlsStatic();	// Call this when linking to MFC statically
-#endif
-
 	// Grab the full path to Wally
 	char szAppDir[_MAX_PATH];
 	GetModuleFileName (NULL, szAppDir, _MAX_PATH);
@@ -1635,11 +1624,11 @@ void CWallyApp::OnFileNew()
 				ASSERT(pWallyDoc->GetGameType() == iFileType);
 				pWallyDoc->SetGameType( iFileType);		// Neal - now done in OpenDocFile above
 
-				if (iFileType = FILE_TYPE_QUAKE1)
+				if (iFileType == FILE_TYPE_QUAKE1)
 				{
 					pWallyDoc->SetPalette( quake1_pal, 256, TRUE);
 				}
-				else if (iFileType = FILE_TYPE_QUAKE2)
+				else if (iFileType == FILE_TYPE_QUAKE2)
 				{
 					pWallyDoc->SetPalette( quake2_pal, 256, TRUE);
 				}
@@ -2841,7 +2830,7 @@ void CAboutDlg::OnMouseMove( UINT /*uFlags*/, CPoint ptPos)
 {
 	UINT  uHit            = HitTest( ptPos);
 	BOOL  bStartPlaying   = (uHit != HIT_NONE);
-	char* szStatusBarText = "";
+	const char* szStatusBarText = "";
 
 	if (uHit != HIT_NONE)
 	{
@@ -2904,7 +2893,7 @@ void CAboutDlg::OnLButtonDown( UINT /*uFlags*/, CPoint ptPos)
 
 	if (uHit != HIT_NONE)
 	{
-		char* szAction = "";
+		const char* szAction = "";
 
 		switch (uHit)
 		{
@@ -3108,11 +3097,11 @@ int CWallyApp::Run()
 	{
 		iReturn = CWinApp::Run();
 	}
-	catch (CMemoryException me)
+	catch (CMemoryException *me)
 	{
 		TCHAR szCause[255];
 		
-		me.GetErrorMessage(szCause, sizeof(szCause));
+		me->GetErrorMessage(szCause, sizeof(szCause));
 
 		strError.Format( "%s%s%s", 
 				"Memory Exception caught in CWallyApp::Run().\n",
@@ -3554,7 +3543,7 @@ void CWallyApp::OnWizardTest()
 			}
 			else
 			{
-				fprintf( fp, "%ld x %ld ==> %s unchanged\n", iWidth, iHeight, pFile->GetFileName() );
+				fprintf( fp, "%ld x %ld ==> %s unchanged\n", iWidth, iHeight, pFile->GetFileName().GetString() );
 			}			
 			
 			pFile = pFile->GetNext();			

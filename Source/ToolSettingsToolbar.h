@@ -87,8 +87,8 @@ protected:
 
 	// Generated message map functions
 	//{{AFX_MSG(CToolSettingsToolbar)
-	afx_msg void OnDecalListBoxCustomMessage(UINT nType, UINT nFlags);
-	afx_msg void OnMouseWndCustomMessage (UINT nType, UINT nFlags);
+	afx_msg LRESULT OnDecalListBoxCustomMessage(WPARAM nType, LPARAM nFlags);
+	afx_msg LRESULT OnMouseWndCustomMessage (WPARAM nType, LPARAM nFlags);
 	afx_msg void OnPaint();
 	afx_msg BOOL OnEraseBkgnd(CDC* pDC);
 	afx_msg void OnSelchangeTstTab(NMHDR* pNMHDR, LRESULT* pResult);

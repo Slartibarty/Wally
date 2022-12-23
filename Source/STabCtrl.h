@@ -181,7 +181,7 @@ public:
 	virtual ~CSTabCtrl();
 	virtual BOOL AttachControlToTab(CWnd *pParent, INT iID, INT iTabNum);
 	virtual BOOL AttachControlToTab(CWnd *pWnd, INT iTabNum);
-	virtual SetCurSel( int nItem );
+	virtual int SetCurSel( int nItem );
 	void NeverShowControl (int iID);
 
 	// Generated message map functions

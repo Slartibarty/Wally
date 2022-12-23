@@ -27,11 +27,11 @@ typedef struct
 		long	bmWidth; 
 		long	bmHeight; 		
 		WORD	bmPlanes; 
-		//byte   bmPlanesFiller; 
+		//BYTE   bmPlanesFiller; 
 		WORD	bmBitsPixel; 
-		byte	bmBitsPixelFiller[16]; 
+		BYTE	bmBitsPixelFiller[16]; 
 		WORD	bmColorsUsed;
-		byte    bmBits[6]; 
+		BYTE    bmBits[6];
 } CDDIBType, *LPCDDIBType;
 
 union CDClipboardDataType

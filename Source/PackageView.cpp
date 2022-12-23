@@ -317,7 +317,7 @@ void CPackageView::OnInitialUpdate()
 	}
 }
 
-void CPackageView::OnPackageListBoxCustomMessage(UINT nType, UINT nFlags)
+LRESULT CPackageView::OnPackageListBoxCustomMessage(WPARAM nType, LPARAM nFlags)
 {
 	switch (nType)
 	{
@@ -341,10 +341,12 @@ void CPackageView::OnPackageListBoxCustomMessage(UINT nType, UINT nFlags)
 	default:
 		ASSERT (false);		// Unhandled type?
 		break;
-	}	
+	}
+
+	return 0;
 }
 
-void CPackageView::OnPackageTreeControlCustomMessage( UINT nType, UINT nFlags )
+LRESULT CPackageView::OnPackageTreeControlCustomMessage( WPARAM nType, LPARAM nFlags )
 {
 	switch (nType)
 	{
@@ -369,6 +371,8 @@ void CPackageView::OnPackageTreeControlCustomMessage( UINT nType, UINT nFlags )
 		ASSERT (false);		// Unhandled type?
 		break;
 	}
+
+	return 0;
 }
 
 void CPackageView::OnSelchangeListImages()
@@ -2514,7 +2518,7 @@ void CPackageView::DoPackageExport (LPCTSTR szDirectory /* = NULL */)
 	{		
 		CPackageExportDlg dlgExport;
 
-		dlgExport.SetDirectory (szDirectory != NULL ? szDirectory : g_strFileSaveDirectory);
+		dlgExport.SetDirectory (szDirectory != NULL ? szDirectory : g_strFileSaveDirectory.GetString());
 				
 		if (dlgExport.DoModal() == IDOK)
 		{
@@ -2583,11 +2587,13 @@ void CPackageView::DoPackageExport (LPCTSTR szDirectory /* = NULL */)
 
 			if (g_bDisplayExportSummary)
 			{
+#if 0
 				CBatchSummaryDlg dlgSummary;	
 
 				dlgSummary.SetStatusText (m_strStatusText);
 				dlgSummary.SetTitle ("Export Summary");
 				dlgSummary.DoModal();
+#endif
 			}
 			
 			m_strStatusText = "";

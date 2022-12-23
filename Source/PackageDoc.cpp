@@ -176,7 +176,7 @@ CWADItem *CPackageDoc::AddImage (CWallyDoc *pWallyDoc, LPCTSTR szName, bool bUpd
 		pView->AddString (pWADItem, szName, bUpdateView);
 	}
 
-	for (k = 0; k < 4; k++)
+	for (int k = 0; k < 4; k++)
 	{
 		pbyBits[k] = NULL;
 	}

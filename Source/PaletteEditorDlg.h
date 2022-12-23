@@ -79,7 +79,7 @@ protected:
 	//{{AFX_MSG(CPaletteEditorDlg)
 	virtual BOOL OnInitDialog();
 	afx_msg void OnPaint();
-	afx_msg void OnPaletteWndCustomMessage(UINT nType, UINT nFlags);
+	afx_msg LRESULT OnPaletteWndCustomMessage(WPARAM nType, LPARAM nFlags);
 	afx_msg void OnButtonBlend();
 	afx_msg void OnKillfocusEditBlue();
 	afx_msg void OnKillfocusEditGreen();

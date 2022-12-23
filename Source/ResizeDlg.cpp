@@ -197,25 +197,25 @@ BOOL CResizeDlg::OnInitDialog()
 			EnableDlgButton( IDC_RADIO_DOUBLE_SIZE,    FALSE);
 		}
 		//if ((iWidth/2 < MIN_SIZE) || (!IsValidSize(iWidth/2)))
-		if ((iWidth/2 < MIN_SIZE) || (iWidth&1 != 0))
+		if ((iWidth/2 < MIN_SIZE) || ((iWidth&1) != 0))
 		{
 			EnableDlgButton( IDC_RADIO_HALF_WIDTH,     FALSE);
 			EnableDlgButton( IDC_RADIO_HALF_SIZE,      FALSE);
 		}
 		//if ((iHeight/2 < MIN_SIZE) || (!IsValidSize(iHeight/2)))
-		if ((iHeight/2 < MIN_SIZE) || (iHeight&1 != 0))
+		if ((iHeight/2 < MIN_SIZE) || ((iHeight&1) != 0))
 		{
 			EnableDlgButton( IDC_RADIO_HALF_HEIGHT,    FALSE);
 			EnableDlgButton( IDC_RADIO_HALF_SIZE,      FALSE);
 		}
 		//if ((iWidth/4 < MIN_SIZE) || (!IsValidSize(iWidth/4)))
-		if ((iWidth/4 < MIN_SIZE) || (iWidth&3 != 0))
+		if ((iWidth/4 < MIN_SIZE) || ((iWidth&3) != 0))
 		{
 			EnableDlgButton( IDC_RADIO_QUARTER_WIDTH,  FALSE);
 			EnableDlgButton( IDC_RADIO_QUARTER_SIZE,   FALSE);
 		}
 		//if ((iHeight/4 < MIN_SIZE) || (!IsValidSize(iHeight/4)))
-		if ((iHeight/4 < MIN_SIZE) || (iHeight&3 != 0))
+		if ((iHeight/4 < MIN_SIZE) || ((iHeight&3) != 0))
 		{
 			EnableDlgButton( IDC_RADIO_QUARTER_HEIGHT, FALSE);
 			EnableDlgButton( IDC_RADIO_QUARTER_SIZE,   FALSE);

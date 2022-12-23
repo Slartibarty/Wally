@@ -379,7 +379,7 @@ void CHalfLifePaletteDlg::OnButtonLoad()
 			if (dlgName.DoModal() == IDOK)
 			{
 				strExtension      = GetExtension( dlgName.GetName());
-				strPalettePath    = m_strPath + dlgName.GetName() + (strExtension.IsEmpty() ? strSourceExtension : "");
+				strPalettePath    = m_strPath + dlgName.GetName() + (strExtension.IsEmpty() ? strSourceExtension : CString(""));
 				strSourceFileName = GetRawFileNameWExt (strPalettePath);
 				fp = fopen (strPalettePath, "r");
 			}
@@ -397,7 +397,7 @@ void CHalfLifePaletteDlg::OnButtonLoad()
 	}
 }
 
-bool CHalfLifePaletteDlg::OnButtonNew() 
+void CHalfLifePaletteDlg::OnButtonNew() 
 {
 	CNewPaletteDlg dlgNewPalette;
 	CString strPaletteName ("");
@@ -433,7 +433,7 @@ bool CHalfLifePaletteDlg::OnButtonNew()
 				{
 					strError.Format ("Cannot create %s!", strFileName);
 					AfxMessageBox (strError, MB_ICONSTOP);
-					return false;
+					return;
 				}
 				else
 				{
@@ -449,7 +449,7 @@ bool CHalfLifePaletteDlg::OnButtonNew()
 					fclose (fp);
 					
 					Update();
-					return true;
+					return;
 				}				
 			}			
 		}
@@ -458,7 +458,7 @@ bool CHalfLifePaletteDlg::OnButtonNew()
 			bFinished = true;
 		}
 	}
-	return false;
+	//return false;
 }
 
 void CHalfLifePaletteDlg::OnButtonSave() 
@@ -498,7 +498,7 @@ void CHalfLifePaletteDlg::OnOK()
 }
 
 
-void CHalfLifePaletteDlg::OnPaletteWndCustomMessage(UINT nType, UINT nFlags)
+LPARAM CHalfLifePaletteDlg::OnPaletteWndCustomMessage(WPARAM nType, LPARAM nFlags)
 {
 	switch (nType)
 	{
@@ -516,5 +516,7 @@ void CHalfLifePaletteDlg::OnPaletteWndCustomMessage(UINT nType, UINT nFlags)
 	default:
 		ASSERT (false);		// Unhandled type?
 		break;
-	}	
+	}
+
+	return 0;
 }

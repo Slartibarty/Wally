@@ -29,27 +29,23 @@ class CImageHelper;
 #ifdef _DEBUG
 	// Makes pnglib verbose so we can find problems (needs to be before png.h)
 	#define PNG_DEBUG 0
-	#pragma comment (lib, "./lpng1012/libpngd.lib")
-#else
-	#pragma comment (lib, "./lpng1012/libpng.lib")
 #endif
 
-#pragma comment (lib, "./ZLib/zlib.lib")
+#pragma comment (lib, "Thirdparty/zlib.lib")
+#pragma comment (lib, "Thirdparty/libpng16.lib")
 
-#include "./lpng1012/png.h"
+#include "Thirdparty/lpng1639/png.h"
 
 //////////////////////////////////////////////////////////////////////////////////////////
 // JPEG Library 
 //////////////////////////////////////////////////////////////////////////////////////////
 
-#ifdef _DEBUG
-	#pragma comment (lib, "./TempFiles/libjpegd.lib")
-#else
-	#pragma comment (lib, "./TempFiles/libjpeg.lib")
-#endif
+#pragma comment (lib, "Thirdparty/jpeg-static.lib")
 
-#include "./jpeg-6b/jpeglib.h"
-#include "./jpeg-6b/jerror.h"
+#define JCONFIG_INCLUDED
+#include "Thirdparty/libjpeg-turbo/build/jconfig.h"
+#include "Thirdparty/libjpeg-turbo/jpeglib.h"
+#include "Thirdparty/libjpeg-turbo/jerror.h"
 
 
 //////////////////////////////////////////////////////////////////////////////////////////

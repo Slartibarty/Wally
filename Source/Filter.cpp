@@ -48,7 +48,7 @@ extern CWallyPalette g_CurrentPalette;
 int   g_iWorking     = 0;
 int   g_iTotalPixels = 0;
 DWORD g_dwTickCount  = 0;
-char* szAnimi[4]     = { "¤      ", "  ¤    ", "    ¤  ", "      ¤" };
+const char* szAnimi[4]     = { "¤      ", "  ¤    ", "    ¤  ", "      ¤" };
 
 /////////////////////////////////////////////////////////////////////////////
 // CFilter
@@ -4407,7 +4407,7 @@ void CFilter::DoMarbleTex( MarbleParams* pParams)
 			pParams->iRandSeed, pParams->bExtraSmooth);
 
 #ifdef _DEBUG
-	for (i = 0; i < MAX_GUARD; i++)
+	for (int i = 0; i < MAX_GUARD; i++)
 	{
 		ASSERT( dwGuard[i] == 0x12345678);
 	}

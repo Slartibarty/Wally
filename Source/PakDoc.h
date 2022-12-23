@@ -21,17 +21,17 @@ class CPakDoc;
 class CPakDocWnd : public CWnd
 {
 private:
-	CPakDoc *m_pDoc;	
+	static CPakDoc *g_pDoc;	
 
 public:
 	CPakDocWnd(CPakDoc *pDoc) : CWnd()
 	{
-		m_pDoc = pDoc;
+		g_pDoc = pDoc;
 	}
 
 	protected:
 	//{{AFX_MSG(CPakDocWnd)	
-	afx_msg void OnPakDocCustomMessage(UINT nType, UINT nFlags);
+	afx_msg LRESULT OnPakDocCustomMessage(WPARAM nType, LPARAM nFlags);
 	//}}AFX_MSG
 	DECLARE_MESSAGE_MAP()
 };
