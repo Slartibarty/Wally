@@ -38,7 +38,7 @@ void CColorSwatchWnd::OnPaint()
 
 	if (m_pColorPaletteToolbar)
 	{
-		pDoc = m_pColorPaletteToolbar->m_pDoc;
+		//pDoc = m_pColorPaletteToolbar->m_pDoc;
 	}
 	else
 	{
