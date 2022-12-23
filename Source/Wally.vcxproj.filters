@@ -1192,4 +1192,9 @@
     <CustomBuild Include="Wally.reg" />
     <CustomBuild Include="Res\wally_logo.pcx" />
   </ItemGroup>
+  <ItemGroup>
+    <Manifest Include="Wally.manifest">
+      <Filter>Source Files</Filter>
+    </Manifest>
+  </ItemGroup>
 </Project>

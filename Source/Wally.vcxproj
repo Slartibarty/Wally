@@ -540,6 +540,9 @@
     <Text Include="ToDo.txt" />
     <Text Include="Wally.txt" />
   </ItemGroup>
+  <ItemGroup>
+    <Manifest Include="Wally.manifest" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>
