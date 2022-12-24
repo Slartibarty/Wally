@@ -414,7 +414,7 @@ void CWallyDoc::Serialize( CArchive& ar)
 
 		if (ar.IsStoring())
 		{
-			ar << (DWORD )m_pSelection;
+			ar << (DWORD_PTR)m_pSelection;
 			
 			if (m_pEffectLayer)		// save the effects layer
 			{
@@ -430,7 +430,7 @@ void CWallyDoc::Serialize( CArchive& ar)
 		}
 		else	// loading
 		{
-			DWORD dwTemp;
+			DWORD_PTR dwTemp;
 			ar >> dwTemp;
 			m_pSelection = (CSelection* )dwTemp;
 

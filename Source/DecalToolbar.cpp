@@ -284,7 +284,7 @@ void CDecalToolbar::OnSetfocusDt1ComboWad()
 		FirstTimeInit();
 
 	struct _finddata_t c_file;
-	long hfile;
+	intptr_t hfile;
 
 	CString strWildCard ("");
 	CString strFileName ("");
@@ -372,7 +372,7 @@ void CDecalToolbar::OnSelchangeDt1ComboWad()
 		while (pItem)
 		{
 			iItemAdded = m_lbImages.AddString (pItem->GetName());
-			m_lbImages.SetItemData (iItemAdded, (DWORD)pItem);
+			m_lbImages.SetItemData (iItemAdded, (DWORD_PTR)pItem);
 			pItem = m_ihHelper.GetNextImage();
 		}
 

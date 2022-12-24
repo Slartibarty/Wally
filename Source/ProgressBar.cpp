@@ -98,6 +98,11 @@ BOOL CProgressBar::Create(LPCTSTR strMessage, int nSize /*=100*/,
 	if (!pStatusBar)
 		return FALSE;
 
+	m_strMessage  = strMessage;
+	m_nSize 	  = nSize;
+	m_nPane 	  = nPane;
+    m_strPrevText = pStatusBar->GetPaneText(m_nPane);
+
 	DWORD dwStyle = WS_CHILD|WS_VISIBLE;
 #ifdef PBS_SMOOTH	 
 	if (bSmooth)
@@ -117,11 +122,6 @@ BOOL CProgressBar::Create(LPCTSTR strMessage, int nSize /*=100*/,
 	// Set range and step
 	SetRange(0, MaxValue);
 	SetStep(1);
-
-	m_strMessage  = strMessage;
-	m_nSize 	  = nSize;
-	m_nPane 	  = nPane;
-    m_strPrevText = pStatusBar->GetPaneText(m_nPane); 
 
 	// Resize the control to its desired width
 	Resize();

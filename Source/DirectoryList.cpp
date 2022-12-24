@@ -188,7 +188,7 @@ CDirectoryEntry::CDirectoryEntry(LPCTSTR szDirectory, CDirectoryList *pParent)
 	ASSERT (szDirectory);
 
 	struct _finddata_t c_file;
-	long hFile;
+	intptr_t hFile;
 
 	CString strSearch ("");
 	CString strDirectory ("");

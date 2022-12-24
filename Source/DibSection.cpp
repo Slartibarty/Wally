@@ -574,7 +574,7 @@ BOOL CDibSection::InitFromClipboard(CWnd *pWnd)
 	}
 
 	// Determine the data size
-	DWORD dwDataSize = GlobalSize(hg); 
+	SIZE_T dwDataSize = GlobalSize(hg); 
 		
 	// Build a buffer
 	LPBYTE pbyTempBuffer = (LPBYTE)GlobalAlloc(GMEM_FIXED, dwDataSize);

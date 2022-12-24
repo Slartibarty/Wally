@@ -1269,7 +1269,7 @@ void CPackageTreeControl::OnLButtonDblClk(UINT nFlags, CPoint point)
 	}
 }
 
-void CPackageTreeControl::OnTimer(UINT nIDEvent)
+void CPackageTreeControl::OnTimer(UINT_PTR nIDEvent)
 {
 	if (nIDEvent == TCEX_EDITLABEL)
 	{
@@ -1402,7 +1402,7 @@ void CPackageTreeControl::OnInitialUpdate()
 	tvInsert.item.iImage = m_iClosedFolderIcon;
 	tvInsert.item.iSelectedImage = m_iOpenFolderIcon;	
 	tvInsert.item.cChildren = 0;
-	tvInsert.item.lParam = reinterpret_cast< ULONG >( pBase );
+	tvInsert.item.lParam = reinterpret_cast< LPARAM >( pBase );
 
 	m_htAllImages = InsertItem( &tvInsert );
 	pBase->SetTreeItem( m_htAllImages );
@@ -1414,7 +1414,7 @@ void CPackageTreeControl::OnInitialUpdate()
 	iLength = strCategory.GetLength();
 	tvInsert.item.pszText = strCategory.GetBuffer( iLength );
 	tvInsert.item.cchTextMax = iLength;
-	tvInsert.item.lParam = reinterpret_cast< ULONG >( pBase );
+	tvInsert.item.lParam = reinterpret_cast< LPARAM >( pBase );
 
 	m_htCategories = InsertItem( &tvInsert );
 	pBase->SetTreeItem( m_htCategories );
@@ -1436,7 +1436,7 @@ void CPackageTreeControl::OnInitialUpdate()
 	tvInsert.item.iImage = m_iClosedFolderIcon;
 	tvInsert.item.iSelectedImage = m_iOpenFolderIcon;	
 	tvInsert.item.cChildren = 0;
-	tvInsert.item.lParam = reinterpret_cast< ULONG >( pTransparent );
+	tvInsert.item.lParam = reinterpret_cast< LPARAM >( pTransparent );
 
 	m_htTransparent = InsertItem( &tvInsert );
 	pTransparent->SetTreeItem( m_htTransparent );
@@ -1458,7 +1458,7 @@ void CPackageTreeControl::OnInitialUpdate()
 	tvInsert.item.iImage = m_iClosedFolderIcon;
 	tvInsert.item.iSelectedImage = m_iOpenFolderIcon;	
 	tvInsert.item.cChildren = 0;
-	tvInsert.item.lParam = reinterpret_cast< ULONG >( pTransparentFloors );
+	tvInsert.item.lParam = reinterpret_cast< LPARAM >( pTransparentFloors );
 
 	m_htTransparentFloors = InsertItem( &tvInsert );
 	pTransparentFloors->SetTreeItem( m_htTransparentFloors );
@@ -1532,7 +1532,7 @@ void CPackageTreeControl::AddToAllImages( CWADItem *pItem )
 	tvInsert.item.cChildren = 0;
 	//tvInsert.item.iImage = m_iBlankIcon;
 	//tvInsert.item.iSelectedImage = m_iBlankIcon;
-	tvInsert.item.lParam = reinterpret_cast< ULONG >( pImage );
+	tvInsert.item.lParam = reinterpret_cast< LPARAM >( pImage );
 
 	pImage->SetTreeItem( InsertItem( &tvInsert ) );
 	pItem->AddPackageEntry( pImage );
@@ -1562,7 +1562,7 @@ void CPackageTreeControl::AddToAllImages( CWADItem *pItem )
 		tvInsert.item.pszText = strName.GetBuffer( iLength );
 		tvInsert.item.cchTextMax = iLength;	
 		tvInsert.item.cChildren = 0;		
-		tvInsert.item.lParam = reinterpret_cast< ULONG >( pImage );
+		tvInsert.item.lParam = reinterpret_cast< LPARAM >( pImage );
 
 		pImage->SetTreeItem( InsertItem( &tvInsert ) );
 		pItem->AddPackageEntry( pImage );
@@ -1592,7 +1592,7 @@ void CPackageTreeControl::AddToAllImages( CWADItem *pItem )
 			tvInsert.item.pszText = strName.GetBuffer( iLength );
 			tvInsert.item.cchTextMax = iLength;	
 			tvInsert.item.cChildren = 0;		
-			tvInsert.item.lParam = reinterpret_cast< ULONG >( pImage );
+			tvInsert.item.lParam = reinterpret_cast< LPARAM >( pImage );
 
 			pImage->SetTreeItem( InsertItem( &tvInsert ) );
 			pItem->AddPackageEntry( pImage );

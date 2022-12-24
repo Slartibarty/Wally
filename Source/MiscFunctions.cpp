@@ -955,7 +955,7 @@ int fnmatch (char *pattern, char *string, int flags)
 void FindAllFiles (LPCTSTR szPath, CStringArray *pStrArray, int iFlags)
 {
 	struct _finddata_t c_file;
-	long hFile;
+	intptr_t hFile;
 	CString strCompare("");
 	
 	// Trim off the trailing \ marks

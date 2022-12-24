@@ -977,7 +977,7 @@ void CBrowseView::OnBvpopupPaste()
 			}
 
 			// Determine the data size
-			int iDataSize = GlobalSize(hgData);
+			SIZE_T iDataSize = GlobalSize(hgData);
 						
 			// Alloc memory
 			BYTE *pbyData = (BYTE *)GlobalAlloc(GMEM_FIXED, iDataSize); 

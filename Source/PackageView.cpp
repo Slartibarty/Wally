@@ -262,7 +262,7 @@ void CPackageView::OnInitialUpdate()
 		{
 			strAddString = pItem->GetName();
 			iItemAdded = m_lbImages.AddString (strAddString);			
-			m_lbImages.SetItemData (iItemAdded, (DWORD)pItem);
+			m_lbImages.SetItemData (iItemAdded, (DWORD_PTR)pItem);
 			pItem->SetListBoxIndex (iItemAdded);
 
 			m_tcImages.AddToAllImages( pItem );
@@ -758,7 +758,7 @@ void CPackageView::OnPaint()
 BOOL CPackageView::OnToolTipNotify( UINT id, NMHDR * pNMHDR, LRESULT * pResult )
 {
 	TOOLTIPTEXT *pTTT = (TOOLTIPTEXT *)pNMHDR;    
-	UINT nID =pNMHDR->idFrom;
+	int nID = 0;
     
 	if (pTTT->uFlags & TTF_IDISHWND)
 	{
@@ -919,7 +919,7 @@ void CPackageView::RenameImage (CWallyDoc *pWallyDoc)
 						m_lbImages.DeleteString (j);
 						iItemAdded = m_lbImages.AddString (strName);
 						
-						m_lbImages.SetItemData (iItemAdded, (DWORD)pItem);
+						m_lbImages.SetItemData (iItemAdded, (DWORD_PTR)pItem);
 						pItem->SetListBoxIndex (iItemAdded);
 
 						m_lbImages.SetSel (iItemAdded, true);
@@ -1348,7 +1348,7 @@ void CPackageView::DoBrowsingPaste ()
 		}
 
 		// Determine the data size
-		int iDataSize = GlobalSize(hgData);
+		SIZE_T iDataSize = GlobalSize(hgData);
 					
 		// Alloc memory
 		BYTE *pbyData = (BYTE *)GlobalAlloc(GMEM_FIXED, iDataSize); 
@@ -1425,7 +1425,7 @@ void CPackageView::DoPaste (bool bReplaceCurrent)
 			}
 
 			// Determine the data size
-			int iDataSize = GlobalSize(hgData);
+			SIZE_T iDataSize = GlobalSize(hgData);
 						
 			// Alloc memory
 			BYTE *pbyData = (BYTE *)GlobalAlloc(GMEM_FIXED, iDataSize); 
@@ -1769,7 +1769,7 @@ void CPackageView::DoPaste (bool bReplaceCurrent)
 			}
 
 			// Determine the data size
-			int iDataSize = GlobalSize(hg); 
+			SIZE_T iDataSize = GlobalSize(hg); 
 			
 			// Alloc memory
 			BYTE *byTextData = (BYTE *)GlobalAlloc(GMEM_FIXED, iDataSize); 
@@ -2236,7 +2236,7 @@ bool CPackageView::AddImage (unsigned char *pbyBits[], CWallyPalette *pPalette, 
 		iItemAdded = m_lbImages.AddString (strName);
 		pItem->SetListBoxIndex (iItemAdded);
 
-		m_lbImages.SetItemData (iItemAdded, (DWORD)pItem);
+		m_lbImages.SetItemData (iItemAdded, (DWORD_PTR)pItem);
 		m_lbImages.SetSel (iItemAdded, true);
 		m_lbImages.SetTopIndex (iItemAdded);
 	}
@@ -2468,7 +2468,7 @@ void CPackageView::AddString (CWADItem *pItem, LPCTSTR szName, bool bSetSelectio
 {	
 	int iItemAdded = m_lbImages.AddString (szName);	
 	pItem->SetListBoxIndex (iItemAdded);
-	m_lbImages.SetItemData (iItemAdded, (DWORD)pItem);	
+	m_lbImages.SetItemData (iItemAdded, (DWORD_PTR)pItem);
 	
 	if (bSetSelection)
 	{
@@ -3106,7 +3106,7 @@ void CPackageView::OnUpdateEditFilter()
 	
 }
 
-void CPackageView::OnTimer(UINT nIDEvent) 
+void CPackageView::OnTimer(UINT_PTR nIDEvent) 
 {		
 	CFormView::OnTimer(nIDEvent);
 
@@ -3262,7 +3262,7 @@ void CPackageView::FilterList()
 			{			
 				iItemAdded = m_lbImages.AddString (strAddString);
 				pItem->SetListBoxIndex (iItemAdded);
-				m_lbImages.SetItemData (iItemAdded, (DWORD)pItem);
+				m_lbImages.SetItemData (iItemAdded, (DWORD_PTR)pItem);
 				bAtLeastOne = true;
 			}
 		}
@@ -3270,7 +3270,7 @@ void CPackageView::FilterList()
 		{
 			iItemAdded = m_lbImages.AddString (strAddString);
 			pItem->SetListBoxIndex (iItemAdded);
-			m_lbImages.SetItemData (iItemAdded, (DWORD)pItem);
+			m_lbImages.SetItemData (iItemAdded, (DWORD_PTR)pItem);
 			bAtLeastOne = true;
 		}
 		pItem = pDoc->GetNextLump();		

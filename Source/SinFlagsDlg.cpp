@@ -73,7 +73,7 @@ END_MESSAGE_MAP()
 BOOL CSinFlagsDlg::OnToolTipNotify( UINT id, NMHDR * pNMHDR, LRESULT * pResult )
 {	
 	TOOLTIPTEXT *pTTT = (TOOLTIPTEXT *)pNMHDR;    
-	UINT nID =pNMHDR->idFrom;
+	int nID = 0;
     
 	if (pTTT->uFlags & TTF_IDISHWND)
 	{
@@ -244,7 +244,7 @@ void CSinFlagsDlg::AddField (LPCTSTR szText, LPCTSTR szDescription, unsigned sho
 		memcpy (lpSinField->piPreDefine, pPredefined, iPredefinedCount * sizeof (unsigned int));
 	}
 	
-	m_lbFields.SetItemData (iItemAdded, (ULONG)lpSinField);
+	m_lbFields.SetItemData (iItemAdded, (DWORD_PTR)lpSinField);
 }
 
 void CSinFlagsDlg::AddField (LPCTSTR szText, LPCTSTR szDescription, unsigned int *puiValue, int iPredefinedCount /* = 0 */, unsigned int *pPredefined /* = NULL */)
@@ -269,7 +269,7 @@ void CSinFlagsDlg::AddField (LPCTSTR szText, LPCTSTR szDescription, unsigned int
 		memcpy (lpSinField->piPreDefine, pPredefined, iPredefinedCount * sizeof (unsigned int));
 	}
 	
-	m_lbFields.SetItemData (iItemAdded, (ULONG)lpSinField);
+	m_lbFields.SetItemData (iItemAdded, (DWORD_PTR)lpSinField);
 }
 
 void CSinFlagsDlg::AddField (LPCTSTR szText, LPCTSTR szDescription, float *pfValue)
@@ -285,7 +285,7 @@ void CSinFlagsDlg::AddField (LPCTSTR szText, LPCTSTR szDescription, float *pfVal
 	lpSinField->pfValue = pfValue;
 	strcpy (lpSinField->szDescription, szDescription);
 	
-	m_lbFields.SetItemData (iItemAdded, (ULONG)lpSinField);
+	m_lbFields.SetItemData (iItemAdded, (DWORD_PTR)lpSinField);
 }
 
 

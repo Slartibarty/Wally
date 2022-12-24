@@ -468,7 +468,7 @@ void CToolSettingsToolbar::OnSetfocusTst1ComboWad()
 		FirstTimeInit();
 
 	struct _finddata_t c_file;
-	long hfile;
+	intptr_t hfile;
 
 	CString strWildCard ("");
 	CString strFileName ("");
@@ -558,7 +558,7 @@ void CToolSettingsToolbar::OnSelendokTst1ComboWad()
 		while (pItem)
 		{
 			iItemAdded = m_lbTST1_Images.AddString (pItem->GetName());
-			m_lbTST1_Images.SetItemData (iItemAdded, (DWORD)pItem);
+			m_lbTST1_Images.SetItemData (iItemAdded, (DWORD_PTR)pItem);
 			pItem = m_ihHelper.GetNextImage();
 		}
 

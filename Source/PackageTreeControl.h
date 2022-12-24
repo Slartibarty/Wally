@@ -203,7 +203,7 @@ protected:
 	afx_msg void OnRButtonDown(UINT nFlags, CPoint point);
 	afx_msg BOOL OnSelchanged(NMHDR* pNMHDR, LRESULT* pResult);
 	afx_msg void OnLButtonDblClk(UINT nFlags, CPoint point);
-	afx_msg void OnTimer(UINT nIDEvent);
+	afx_msg void OnTimer(UINT_PTR nIDEvent);
 	afx_msg void OnEndlabeledit(NMHDR* pNMHDR, LRESULT* pResult);
 	afx_msg void OnBeginlabeledit(NMHDR* pNMHDR, LRESULT* pResult);
 	afx_msg void OnRButtonUp(UINT nFlags, CPoint point);

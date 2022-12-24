@@ -199,7 +199,7 @@ void CPakListView::UpdateList()
 		lvText.stateMask = 0;
 		lvText.pszText = strText.GetBuffer(strText.GetLength());
 		lvText.cchTextMax = strText.GetLength();
-		lvText.lParam = (ULONG)lpPakParam;
+		lvText.lParam = (LPARAM)lpPakParam;
 		lvText.iImage = m_iClosedFolderIcon;
 
 		GetListCtrl().InsertItem (&lvText);
@@ -236,7 +236,7 @@ void CPakListView::UpdateList()
 		lvText.stateMask = 0;
 		lvText.pszText = strText.GetBuffer(strText.GetLength());
 		lvText.cchTextMax = strText.GetLength();
-		lvText.lParam = (ULONG)lpPakParam;
+		lvText.lParam = (LPARAM)lpPakParam;
 		lvText.iImage = iIcon;
 
 		iItem = GetListCtrl().InsertItem (&lvText);
@@ -1018,7 +1018,7 @@ void CPakListView::OnPakPopupNewFolder()
 		lvText.stateMask = 0;
 		lvText.pszText = strText.GetBuffer(strText.GetLength());
 		lvText.cchTextMax = strText.GetLength();
-		lvText.lParam = (ULONG)lpPakParam;
+		lvText.lParam = (LPARAM)lpPakParam;
 		lvText.iImage = m_iClosedFolderIcon;
 
 		int iItem = GetListCtrl().InsertItem (&lvText);
@@ -1119,7 +1119,7 @@ void CPakListView::OnPakPopupNewTxtfile()
 		lvText.stateMask = 0;
 		lvText.pszText = strText.GetBuffer(strText.GetLength());
 		lvText.cchTextMax = strText.GetLength();
-		lvText.lParam = (ULONG)lpPakParam;
+		lvText.lParam = (LPARAM)lpPakParam;
 		lvText.iImage = iIcon;
 
 		int iItem = GetListCtrl().InsertItem (&lvText);

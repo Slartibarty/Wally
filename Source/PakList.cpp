@@ -527,7 +527,7 @@ BOOL CPakItem::OpenItem()
 	
 	ShellExecuteEx (&shInfo);
 
-	if ((ULONG)shInfo.hInstApp == ERROR_NO_ASSOCIATION )
+	if ((LONG_PTR)shInfo.hInstApp == ERROR_NO_ASSOCIATION )
 	{
 		SetErrorCode (PAK_ERROR_NO_ASSOC);
 		return FALSE;
@@ -994,7 +994,7 @@ void CPakDirectory::BuildTree (CTreeCtrl& List, HTREEITEM htParent, int iClosedI
 	tvInsert.item.iImage = iClosedIcon;
 	tvInsert.item.iSelectedImage = iOpenIcon;
 	tvInsert.item.cChildren = 0;
-	tvInsert.item.lParam = (ULONG)this;
+	tvInsert.item.lParam = (LPARAM)this;
 
 	htItem = List.InsertItem (&tvInsert);
 

@@ -3178,7 +3178,7 @@ void CWallyView::OnKeyUp( UINT nChar, UINT nRepCnt, UINT nFlags)
 	CScrollView::OnKeyUp(nChar, nRepCnt, nFlags);
 }
 
-void CWallyView::OnTimer( UINT nIDEvent)
+void CWallyView::OnTimer( UINT_PTR nIDEvent)
 {
 	switch (nIDEvent)
 	{

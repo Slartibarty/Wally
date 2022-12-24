@@ -247,7 +247,7 @@ protected:
 	afx_msg void OnCheckFilter();
 	afx_msg void OnDoubleclickedCheckFilter();
 	afx_msg void OnUpdateEditFilter();
-	afx_msg void OnTimer(UINT nIDEvent);
+	afx_msg void OnTimer(UINT_PTR nIDEvent);
 	afx_msg void OnButtonSelect();
 	afx_msg void OnPackageDragCancel();
 	afx_msg void OnPackageDragCopy();

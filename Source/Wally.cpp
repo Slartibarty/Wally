@@ -567,7 +567,7 @@ BOOL CWallyApp::InitInstance()
 	CMainFrame* pMainFrame = new CMainFrame;
 	if (!pMainFrame->LoadFrame(IDR_MAINFRAME))
 		return FALSE;
-	m_pMainWnd = pMainFrame;	
+	m_pMainWnd = pMainFrame;
 
 	// Enable drag/drop open
 	m_pMainWnd->DragAcceptFiles();
@@ -692,7 +692,7 @@ protected:
 	virtual void OnOK();
 	afx_msg void OnMouseMove(UINT nFlags, CPoint point);
 	afx_msg void OnLButtonDown(UINT nFlags, CPoint point);
-	afx_msg void OnTimer(UINT nIDEvent);
+	afx_msg void OnTimer(UINT_PTR nIDEvent);
 	//}}AFX_MSG
 	DECLARE_MESSAGE_MAP()
 };
@@ -2925,7 +2925,7 @@ void CAboutDlg::OnLButtonDown( UINT /*uFlags*/, CPoint ptPos)
 //	}
 }
 
-void CAboutDlg::OnTimer( UINT uIDEvent) 
+void CAboutDlg::OnTimer( UINT_PTR uIDEvent)
 {
 	switch (uIDEvent)
 	{
