@@ -20,7 +20,7 @@
 #include "WADList.h"
 #include "RegistryHelper.h"
 
-#include "Thirdparty/lpng1639/pngpriv.h"
+#include "pngpriv.h"
 
 #ifdef _DEBUG
 #define new DEBUG_NEW

@@ -51,8 +51,6 @@ using namespace std;
 //#define true  TRUE
 //#define false FALSE
 
-#pragma comment( lib, "winmm.lib" )
-
 //{{AFX_INSERT_LOCATION}}
 // Microsoft Developer Studio will insert additional declarations immediately before the previous line.
 

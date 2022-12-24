@@ -31,22 +31,16 @@ class CImageHelper;
 	#define PNG_DEBUG 0
 #endif
 
-#pragma comment (lib, "Thirdparty/zlib.lib")
-#pragma comment (lib, "Thirdparty/libpng16.lib")
-
-#include "Thirdparty/lpng1639/png.h"
+#include "png.h"
 
 //////////////////////////////////////////////////////////////////////////////////////////
 // JPEG Library 
 //////////////////////////////////////////////////////////////////////////////////////////
 
-#pragma comment (lib, "Thirdparty/jpeg-static.lib")
-
 #define JCONFIG_INCLUDED
-#include "Thirdparty/libjpeg-turbo/build/jconfig.h"
-#include "Thirdparty/libjpeg-turbo/jpeglib.h"
-#include "Thirdparty/libjpeg-turbo/jerror.h"
-
+#include "jconfig.h"
+#include "jpeglib.h"
+#include "jerror.h"
 
 //////////////////////////////////////////////////////////////////////////////////////////
 // Image file format structures
