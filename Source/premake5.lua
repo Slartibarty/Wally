@@ -306,6 +306,7 @@ project "Wally"
 	--filter( {} )
 	
 	vpaths { ["Header Files"] = "*.h" }
+	vpaths { ["Resource Files"] = { "*.rc", "*.rc2", "*.manifest" } }
 	vpaths { ["Source Files"] = "*.cpp" }
 	
 	files {
