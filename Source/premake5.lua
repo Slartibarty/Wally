@@ -118,6 +118,11 @@ filter "kind:SharedLib"
 	targetprefix "" -- No prefix please!
 filter {}
 
+-- Always have libjpeg, libpng, zlib and the configs in the include paths
+includedirs {
+	"Thirdparty/libjpeg-turbo", "Thirdparty/libpng", "Thirdparty/zlib", "Thirdparty/configs"
+}
+
 -- Project definitions --------------------------------------------------------
 
 zlib_public = {
@@ -156,7 +161,6 @@ project "zlib"
 	kind "StaticLib"
 	targetname "zlib"
 	language "C"
-	defines { "_CRT_NONSTDC_NO_WARNINGS" }
 
 	disablewarnings { "4267", "4244" }
 	
@@ -198,9 +202,6 @@ project "libpng"
 	kind "StaticLib"
 	targetname "libpng"
 	language "C"
-	includedirs {
-		"Thirdparty/zlib"
-	}
 
 	vpaths { ["code"] = "*" }
 
@@ -291,9 +292,6 @@ project "Wally"
 	targetdir "Output"
 	debugdir "Output"
 	defines { "_WALLY" }
-	includedirs {
-		"Thirdparty/libjpeg-turbo", "Thirdparty/libpng", "Thirdparty/zlib"
-	}
 	flags { "MFC" }
 	links { "winmm", "zlib", "libpng", "libjpeg-turbo" }
 	conformancemode "Off"
